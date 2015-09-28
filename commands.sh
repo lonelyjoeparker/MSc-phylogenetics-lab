@@ -72,7 +72,7 @@ java -jar PrepareFilesForPaml.jar
 ## Part 3 ##
 # You'll need to be in the directory '~/Desktop/phylogenetics/part_3'
 # building a tree, genus A
-muscle -in Trich_ITS.NXS.edit.fa -out Trich_ITS.aligned.fa  -maxiters 2
+muscle -in Trich_ITS.NXS.short.fa -out Trich_ITS.aligned.fa  -maxiters 2
 java -jar PrepareFilesForPaml.jar Trich_ITS.aligned.fa 
 ../software/raxmlHPC -m GTRCAT -n Trich_ITS -p 333  -s Trich_ITS.aligned.fa.stops.removed.phy 
 # (view output in FigTree GUI)
