@@ -1,0 +1,152 @@
+#NEXUS
+begin taxa;
+	dimensions ntax=73;
+	taxlabels
+	Cipadessa_DQ861627
+	Psedoclausena_DQ861602
+	T_havanensis_25283
+	T_emetica_44071
+	T_monadepha_40329
+	T_capitata_44072
+	Psedobersana_44073
+	Pterorhachis_DQ861628
+	T_glabra_25282
+	T_trifolia_25328
+	T_elegans_25275
+	T_fasciculata_25280
+	T_casaretti_43091
+	T_pallens_25301
+	T_hirta_25432
+	T_euneura_43096
+	T_trimera_25327
+	T_septentrionalis_29896
+	T_hispida_43099
+	T_rubra_25312
+	T_clausseni_43092
+	T_adolfi_43086
+	T_quadrijuga_25309
+	T_erythrocarpa_43095
+	T_aquifolia_25269
+	T_singularis_25316
+	T_elsae_43093
+	T_pachypoda_43105
+	T_appendiculata_43088
+	T_emarginata_43094
+	T_cipo_25273
+	T_sp_aff_surinamensis_25292
+	T_tuberculata_25292
+	T_primogenita_25306
+	T_acuminata_25266
+	T_silvatica_25314
+	T_ulei_25330
+	T_solitudinis_43108
+	T_floribunda_25281
+	T_poeppigii_25305
+	T_reynelii_33288
+	T_laxipaniculata_43101
+	T_bullata_25271
+	T_gamopetala_43098
+	T_mazanensis_25293
+	T_breviflora_25270
+	T_minutiflora_25295
+	T_moschata_25296
+	T_amapaensis_24267
+	T_schomburgkii_25313
+	T_lecointei_25287
+	T_pleeana_29894
+	T_tenuifructa_25323
+	T_deminuta_25428
+	T_florbranca_43097
+	T_congesta_25274
+	T_magnifoliola_25291
+	T_catigua_25272
+	T_stellatotomen_25319
+	T_triacantha_25326
+	T_tetrapetala_43111
+	T_blanchetii_43090
+	T_pseudostipularis_25308
+	T_ramalhoi_25310
+	T_surumuensis_43110
+	T_lepidota_25289
+	T_martiana_25433
+	T_pallida_25302
+	T_multifoliola_25297
+	T_dazae_30532
+	Astrotrichilia_DQ861621
+	Guarea_velutina_25882
+	Guarea_tonduzii_25949
+;
+end;
+
+begin trees;
+	tree tree_1 = [&R] (((Cipadessa_DQ861627:0.1038455351171895,(Psedoclausena_DQ861602:0.0776268521421391,(T_havanensis_25283:0.11551641305358766,((T_emetica_44071:0.04169905895158001,T_monadepha_40329:0.009403393146046176):0.0629142412506696,((T_capitata_44072:0.14987464689086305,(Psedobersana_44073:0.020961843580821784,Pterorhachis_DQ861628:0.05022260781062165):0.05261721640820463):0.029783287901926837,(((T_glabra_25282:0.11005091989331262,(T_trifolia_25328:0.21764985358391373,((T_elegans_25275:0.0811254657915295,T_fasciculata_25280:0.05444129683909436):0.014230528130285126,(T_casaretti_43091:0.060146873586049046,T_pallens_25301:0.048862619700566004):0.0013532859285010515):0.006967919636172045):0.0027973364718580575):0.01023525204567564,(T_hirta_25432:0.10316973261336776,((T_euneura_43096:0.03858319979647053,T_trimera_25327:0.05481738337196227):0.019093482929573916,(T_septentrionalis_29896:0.06403628100925329,((T_hispida_43099:0.00992384290685117,T_rubra_25312:0.006477757952987775):0.05486669368184158,(T_clausseni_43092:0.046867935931735175,(T_adolfi_43086:0.026405281401359018,((((T_quadrijuga_25309:0.009272427334897951,T_erythrocarpa_43095:0.009424350546826499):9.1254801602669E-7,((T_aquifolia_25269:0.010313136092739334,T_singularis_25316:0.0031230810894370743):0.0015584183782021838,(T_elsae_43093:0.0030647625416633413,T_pachypoda_43105:0.011449039741482148):9.1254801602669E-7):9.1254801602669E-7):0.0049662867604489454,((T_appendiculata_43088:0.007717854559097537,(T_emarginata_43094:0.003051113376966491,(T_cipo_25273:0.007620813592301583,((((T_sp_aff_surinamensis_25292:0.002293949252268511,T_tuberculata_25292:9.1254801602669E-7):0.0068130160867113055,T_primogenita_25306:0.028599721546157763):0.003137143475010576,(T_acuminata_25266:0.01420214312196323,(T_silvatica_25314:0.012460519262899575,(T_ulei_25330:0.018606047699864157,((T_solitudinis_43108:0.0015047804943104182,(T_floribunda_25281:0.0030276886391535996,T_poeppigii_25305:0.007576231210206336):9.1254801602669E-7):0.006065662205754443,(T_reynelii_33288:0.013951954495170723,T_laxipaniculata_43101:0.005826398244511747):0.0018824534721193819):0.0015424478302083322):0.001300880902245197):0.006370333693997052):9.1254801602669E-7):0.0015299061746677782,(T_bullata_25271:0.013979982046291752,(T_gamopetala_43098:0.02345338425855091,(T_mazanensis_25293:0.002784338196060135,(((T_breviflora_25270:0.00844810561653654,(T_minutiflora_25295:0.009990891430163042,T_moschata_25296:0.00779478340421695):0.0017523313984353355):0.007951611417059684,T_amapaensis_24267:0.014226921300137937):0.003506100388081033,((T_schomburgkii_25313:0.012409165454331659,(T_lecointei_25287:0.001526031411404339,T_pleeana_29894:0.0019707230114551517):0.010319131732235618):0.007670931894408719,(T_tenuifructa_25323:0.015528709266244063,T_deminuta_25428:0.010764898382379741):9.1254801602669E-7):0.0014983802778284919):0.001745294900046936):9.1254801602669E-7):9.1254801602669E-7):9.1254801602669E-7):9.1254801602669E-7):9.1254801602669E-7):9.1254801602669E-7):0.0015832790121806017,(((T_florbranca_43097:0.0013635715516286857,T_congesta_25274:0.009459632326701804):0.006324336461323681,T_magnifoliola_25291:0.013885820345425421):9.1254801602669E-7,(T_catigua_25272:0.010985325442101629,((T_stellatotomen_25319:0.055297601253255134,T_triacantha_25326:0.008299299916673695):0.004184720932536499,(T_tetrapetala_43111:0.0015271200848744066,((T_blanchetii_43090:0.006114152497250554,T_pseudostipularis_25308:9.1254801602669E-7):0.0015154248910416396,T_ramalhoi_25310:0.007749928048232117):9.1254801602669E-7):0.0030410872335845146):9.1254801602669E-7):0.001562758057076957):0.0015555613178803978):0.0063406103480724224):0.009731335882962518,T_surumuensis_43110:0.0346734963654397):0.005190431656480628):0.02036530231839209):0.002674464963106868):0.002147336986585308):0.0032673577879802577):0.0016277474316546117):0.004503602235671755):0.0030436607722888337,((T_lepidota_25289:0.058319569364624464,T_martiana_25433:0.09874539150592437):0.010823180921597335,(T_pallida_25302:0.08339157811359166,(T_multifoliola_25297:0.015298296909646276,T_dazae_30532:0.012338841290562704):0.03803832632211863):6.221729951994009E-4):0.00592570711736279):0.010612900943617387):9.1254801602669E-7):0.024783247283289213):0.013208282963295986):0.01298426047544525)[&!rotate=false]:0.07347266130703968,Astrotrichilia_DQ861621:0.08359764869795197)[&!rotate=false]:0.06117667911405891,Guarea_velutina_25882:0.08014604377054635,Guarea_tonduzii_25949:0.07052987017171561)[&!rotate=false];
+end;
+
+begin figtree;
+	set appearance.backgroundColorAttribute="User Selection";
+	set appearance.backgroundColour=#-1;
+	set appearance.branchColorAttribute="User Selection";
+	set appearance.branchLineWidth=1.0;
+	set appearance.foregroundColour=#-16777216;
+	set appearance.selectionColour=#-2144520576;
+	set branchLabels.colorAttribute="User Selection";
+	set branchLabels.displayAttribute="Branch times";
+	set branchLabels.fontName="sansserif";
+	set branchLabels.fontSize=8;
+	set branchLabels.fontStyle=0;
+	set branchLabels.isShown=false;
+	set branchLabels.significantDigits=4;
+	set layout.expansion=0;
+	set layout.layoutType="RECTILINEAR";
+	set layout.zoom=0;
+	set nodeBars.barWidth=4.0;
+	set nodeLabels.colorAttribute="User Selection";
+	set nodeLabels.displayAttribute="Node ages";
+	set nodeLabels.fontName="sansserif";
+	set nodeLabels.fontSize=8;
+	set nodeLabels.fontStyle=0;
+	set nodeLabels.isShown=false;
+	set nodeLabels.significantDigits=4;
+	set polarLayout.alignTipLabels=false;
+	set polarLayout.angularRange=0;
+	set polarLayout.rootAngle=0;
+	set polarLayout.rootLength=100;
+	set polarLayout.showRoot=true;
+	set radialLayout.spread=0.0;
+	set rectilinearLayout.alignTipLabels=false;
+	set rectilinearLayout.curvature=0;
+	set rectilinearLayout.rootLength=100;
+	set scale.offsetAge=0.0;
+	set scale.rootAge=1.0;
+	set scale.scaleFactor=1.0;
+	set scale.scaleRoot=false;
+	set scaleAxis.automaticScale=true;
+	set scaleAxis.fontSize=8.0;
+	set scaleAxis.isShown=false;
+	set scaleAxis.lineWidth=1.0;
+	set scaleAxis.majorTicks=1.0;
+	set scaleAxis.origin=0.0;
+	set scaleAxis.reverseAxis=false;
+	set scaleAxis.showGrid=true;
+	set scaleAxis.significantDigits=4;
+	set scaleBar.automaticScale=true;
+	set scaleBar.fontSize=10.0;
+	set scaleBar.isShown=true;
+	set scaleBar.lineWidth=1.0;
+	set scaleBar.scaleRange=0.0;
+	set scaleBar.significantDigits=4;
+	set tipLabels.colorAttribute="User Selection";
+	set tipLabels.displayAttribute="Names";
+	set tipLabels.fontName="sansserif";
+	set tipLabels.fontSize=8;
+	set tipLabels.fontStyle=0;
+	set tipLabels.isShown=true;
+	set tipLabels.significantDigits=4;
+	set trees.order=true;
+	set trees.orderType="decreasing";
+	set trees.rooting=false;
+	set trees.rootingType="User Selection";
+	set trees.transform=false;
+	set trees.transformType="cladogram";
+end;
+

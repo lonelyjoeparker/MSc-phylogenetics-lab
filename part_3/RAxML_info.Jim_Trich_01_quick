@@ -1,0 +1,87 @@
+IMPORTANT WARNING: Alignment column 100 contains only undetermined values which will be treated as missing data
+IMPORTANT WARNING: Alignment column 118 contains only undetermined values which will be treated as missing data
+IMPORTANT WARNING: Alignment column 119 contains only undetermined values which will be treated as missing data
+IMPORTANT WARNING: Alignment column 129 contains only undetermined values which will be treated as missing data
+IMPORTANT WARNING: Alignment column 321 contains only undetermined values which will be treated as missing data
+IMPORTANT WARNING: Alignment column 648 contains only undetermined values which will be treated as missing data
+IMPORTANT WARNING: Alignment column 683 contains only undetermined values which will be treated as missing data
+IMPORTANT WARNING: Alignment column 684 contains only undetermined values which will be treated as missing data
+IMPORTANT WARNING: Alignment column 685 contains only undetermined values which will be treated as missing data
+IMPORTANT WARNING: Alignment column 686 contains only undetermined values which will be treated as missing data
+IMPORTANT WARNING: Alignment column 687 contains only undetermined values which will be treated as missing data
+
+IMPORTANT WARNING
+Found 11 columns that contain only undetermined values which will be treated as missing data.
+Normally these columns should be excluded from the analysis.
+
+Just in case you might need it, an alignment file with 
+undetermined columns removed is printed to file Trich_ITS.NXS.edit.reduced
+
+
+This is RAxML version 7.2.8 released by Alexandros Stamatakis in October 2010.
+
+With greatly appreciated code contributions by:
+Andre Aberer (TUM)
+Simon Berger (TUM)
+John Cazes (TACC)
+Michael Ott (TUM)
+Nick Pattengale (UNM)
+Wayne Pfeiffer (SDSC)
+Akifumi S. Tanabe (Univ. Tsukuba)
+
+
+Alignment has 565 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 15.96%
+
+RAxML rapid hill-climbing mode
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+Executing 1 inferences on the original alignment using 1 distinct randomized MP trees
+
+All free model parameters will be estimated by RAxML
+ML estimate of 25 per site rate categories
+
+Likelihood of final tree will be evaluated and optimized under GAMMA
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 565
+Name: No Name Provided
+DataType: DNA
+Substitution Matrix: GTR
+
+
+
+
+RAxML was called as follows:
+
+/Applications/Phylogenetics/RAxML/RAxML-7.2.8-ALPHA/raxmlHPC -m GTRCAT -p 234569 -n Jim_Trich_01_quick -s Trich_ITS.NXS.edit 
+
+
+Inference[0]: Time 8.389457 CAT-based likelihood -8235.131480, best rearrangement setting 5
+alpha[0]: 1.000000 rates[0] ac ag at cg ct gt: 0.607846 1.439571 0.687934 0.295307 2.719517 1.000000 
+
+
+Conducting final model optimizations on all 1 trees under GAMMA-based models ....
+
+Testing which likelihood implementation to use
+Standard Implementation full tree traversal time: 0.028462
+Subtree Equality Vectors for gap columns full tree traversal time: 0.028794
+... using standard implementation
+
+Inference[0] final GAMMA-based Likelihood: -9165.339970 tree written to file /Users/joeparker/Documents/all_work/students/MSc_phylogenetics_lab/part_3/RAxML_result.Jim_Trich_01_quick
+
+
+Starting final GAMMA-based thorough Optimization on tree 0 likelihood -9165.339970 .... 
+
+Final GAMMA-based Score of best tree -9165.323393
+
+Program execution info written to /Users/joeparker/Documents/all_work/students/MSc_phylogenetics_lab/part_3/RAxML_info.Jim_Trich_01_quick
+Best-scoring ML tree written to: /Users/joeparker/Documents/all_work/students/MSc_phylogenetics_lab/part_3/RAxML_bestTree.Jim_Trich_01_quick
+
+Overall execution time: 24.406531 secs or 0.006780 hours or 0.000282 days
+
