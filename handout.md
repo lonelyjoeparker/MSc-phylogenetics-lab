@@ -5,16 +5,13 @@ In this practical we will carry out some simple analyses that use phylogenies (e
 Throughout the practical, commands you should type into the terminal window will be rendered in this font, e.g.:
 
 ```bash
-MacBook-Pro:pi_biolinux_cluster joe$ echo 'hello, world!'
-hello, world!
+User@user-pi:~$ echo 'hello, world!'
+> hello, world!
 ```
 
-Some of the datasets in this practical have been simulated so that no two workstations will give identical answers to every question. If you have questions during the practical, ask your instructors. They are:
-	Joe Parker
-	Jim Clarkson
-	Alex Papadopulos
+Some of the datasets in this practical have been simulated so that no two workstations will give identical answers to every question. If you have questions during the practical, ask your instructors.
 
-Note: the datasets and other files needed for this practical can be found at https://github.com/lonelyjoeparker/MSc-phylogenetics-lab. If you need a hint, a cheatsheet is at `~/Desktop/phylogenetics/commands.sh` 
+*Note: the datasets and other files needed for this practical can be found at https://github.com/lonelyjoeparker/MSc-phylogenetics-lab. If you need a hint, a cheatsheet is at `~/Desktop/phylogenetics/commands.sh`. This worksheet (in case you're reading the printed version) is available online at https://github.com/lonelyjoeparker/MSc-phylogenetics-lab/blob/master/handout.md*
 
 ## Part 0 – Getting started (10-15mins)
 
@@ -27,7 +24,7 @@ Your desktop should have a folder visible called `phylogenetics`. This is where 
 
 You should now have a terminal window open. The black screen you can see looks like it dates from the 1970s because it does! In fact, pretty much all computers, deep down, date from the 1970s, because not much has changed at that level since then. The line you can see with a blinking cursor at the end is called a prompt. It is split into three parts, telling us:
 ```bash
-User@user-pi:~$ (username @ computer name: directory$)
+User@user-pi:~$     # which means: "user's name" @ "computer's name": "current directory name" $
 ```
 
 “~” is a funny name for a directory, which you’ve probably not seen before. We can use the `pwd` command (‘print working directory’) to find out where we really are. Type that now, followed by a return (you always type return to enter your input).
@@ -36,11 +33,11 @@ We want to move to the directory where the data is, that ‘phylogenetics’ fol
 ```bash
 cd for/starters
 ```
-not
+not:
 ```bash
 cd starters 
 ```
-as the computer can’t find the ‘starters’ directory, without first being told to look in the ‘for’ directory. To go up a directory we can use the special file ‘..’ e.g. cd ‘..’ will take us up to the parent directory. 
+...because the computer can’t find the ‘starters’ directory, without first being told to look in the ‘for’ directory - the computer can only ever 'see' files in the current directory. To go up a directory we can use the special file ‘..’ e.g. `cd ..` will take us up to the parent directory. 
 
 Type these commands, looking at the output
 ```bash
@@ -58,15 +55,15 @@ cd Desktop/phylogenetics/part_1
 ```bash
 # Unfunny pithy remark here, spot the pattern?
 ```
-We are going to construct a phylogeny of some matK genes taken from specimens in the gardens. They were collected from orchids and sequenced. First we’ll look at the sequences. They are in the `orchids.short.initial.fa` file. You can use the command ‘less’ to look at the file (press ‘q’ to quit, or spacebar to scroll through the sequences):
+We're going to construct a phylogeny of some matK genes taken from specimens in the gardens. They were collected from orchids and sequenced. First we’ll look at the sequences. They are in the `orchids.short.initial.fa` file. You can use the command `less` to look at the file (press ‘q’ to quit, or spacebar to scroll through the sequences):
 ```bash
 User@user-pi:~$ less orchids.short.initial.fa
 ```
-That is a bit cumbersome. We’ll use a graphical user interface called CONTEXT to look at it. Open the context browser with this command:
+`less` is a powerful tool to look at all sorts of data types, but it's a bit cumbersome for big DNA datasets. We’ll use a graphical user interface called CONTEXT to look at it. Open the CONTEXT browser with this command:
 ```bash
 User@user-pi:~$ java -jar ../software/CONTEXT-PhylogenomicDatasetBrowser-v0.8.1.jar
 ``` 
-Click ‘add a file’ to open the orchids.short.initial.fa file. You can see that the sequences are of various lengths. We are going to align them using a program called muscle. First open a new terminal by pressing ‘control-alt-T’ again (leave CONTEXT running in the old terminal), then navigate back to the part_1 directory, and type:
+Click ‘add a file’ to open the `orchids.short.initial.fa file`. You can see that the sequences are of various lengths. We are going to align them using a program called `muscle`. First open a new terminal by pressing ‘control-alt-T’ again (leave CONTEXT running in the old terminal), then navigate back to the `part_1` directory, and type:
 ```bash
 User@user-pi:~$ muscle -in orchids.short.initial.fa -out orchids.short.out -maxiters 2
 ```
@@ -74,7 +71,7 @@ Once muscle has finished open the output (‘orchids.short.out’) in CONTEXT.
 
 **QUESTION 1:** Compare the two files. What has changed since you ‘aligned’ the sequences?
 
-Now we will build a phylogeny from the aligned sequences. First we have to convert the file format from .fasta to a format RAxML uses:
+Now we will build a phylogeny from the aligned sequences. First we have to convert the file into a format RAxML uses:
 
 ```bash
 User@user-pi:~$java -jar ../software/PrepareFilesForPaml.jar orchids.short.out
@@ -84,7 +81,7 @@ Now we can build the tree using RAxML:
 ```bash
 User@user-pi:~$ ../software/raxmlHPC -m GTRCAT -n orchids.short.initial -p 1  -s orchids.short.out.stops.removed.phy
 ```
-Finally, we can look at the phylogeny we’ve generated (`RAxML_bestTree.orchids.short.initial.tre`) in less again:
+Finally, we can look at the phylogeny we’ve generated (`RAxML_bestTree.orchids.short.initial.tre`) using `less` again:
 
 ```bash
 User@user-pi:~$ less RAxML_bestTree.orchids.short.initial.tre
@@ -97,7 +94,7 @@ You can see the phylogenetic tree that we have inferred – that is, our best gu
 
 **QUESTION 2:** Which sequence is the contaminant? Why that one?
 
-In ‘orchids.short.filtered.fa’, we’ve removed the contaminant. Re-align the sequences and repeat the phylogeny inference using the cleaned data set. Hint: you’ll need to change the names from the previous commands.
+In `orchids.short.filtered.fa`, we’ve removed the contaminant. Re-align the sequences and repeat the phylogeny inference using the cleaned data set. *Hint: you’ll need to change the names from the previous commands.*
 
 **QUESTION 3:** How might the contamination have arisen?
 
@@ -106,7 +103,7 @@ In ‘orchids.short.filtered.fa’, we’ve removed the contaminant. Re-align th
 ## Part 2a – Phylogeography of island chains (30mins)
 
 ```bash
-# Commenting code liberally is good. Comments in Linux typically start with a ‘#’
+# the answer is blowin' in...
 ```
 There are two datasets from two genera of flowering plants, both distributed on the hawaiian islands. One is wind-dispersed, the other is dispersed by mammals. We will investigate their districutopns and look for a phylogeographic pattern.
 The islands themselves have formed at different times from a chain of seamounts arising from two tectonic plates:
@@ -114,17 +111,17 @@ The islands themselves have formed at different times from a chain of seamounts 
 ![Major and outlying Hawaiian islands: Donch](http://www.donch.com/images/LULH/age.jpg)
  
 
-First you’ll need to navigate to the ‘part_2’ directory in the command prompt window. There are two datasets, genus_A_master_ungapped.fa and genus_B_master_ungapped.fa. Each has one species from each island. We’ll build a tree for genus A first. We have to align the sequences, as before:
+First you’ll need to navigate to the ‘part_2’ directory in the command prompt window. There are two datasets, `genus_A_master_ungapped.fa` and `genus_B_master_ungapped.fa`. Each has a single species present on each island. We're interested in how the pattern of evolution mirrors the geological formation of the islands - this is called **phylogeography**. We’ll build a tree for genus A first. We have to align the sequences, as before:
 ```bash
-muscle -in genus_A_master_ungapped.fa -out genus_A_aligned.out  -maxiters 2
+User@user-pi:~$ muscle -in genus_A_master_ungapped.fa -out genus_A_aligned.out  -maxiters 2
 ```
 Then convert into phylip format:
 ```bash
-java -jar PrepareFilesForPaml.jar genus_A_aligned.out
+User@user-pi:~$ java -jar PrepareFilesForPaml.jar genus_A_aligned.out
 ```
 Then use RAxML to infer the tree:
 ```bash
-../software/raxmlHPC -m GTRCAT -n genus_A -p 222  -s genus_A_aligned.out.stops.removed.phy 
+User@user-pi:~$ ../software/raxmlHPC -m GTRCAT -n genus_A -p 222  -s genus_A_aligned.out.stops.removed.phy 
 ```
 Open the finished tree in FigTree again, and compare the phylogeny with the map.
 
@@ -155,7 +152,7 @@ Finally, we can use a programme called BEAST to infer how old clades within the 
 ```bash
 # Most code comments debase into wisecracks of dubious value soon enough…
 ```
-The shape of the tree itself also gives us useful information. Figs 1a and 1b show two common shapes of tree; 1a shows a lineage that has undergone a burst of rapid speciation and evolution. Fig 1b shows a lineage which is evolving more slowly. [joe – no image]
+The shape of the tree itself also gives us useful information. Figs 1a and 1b show two common shapes of tree; 1a shows a lineage that has undergone a burst of rapid speciation and evolution. Fig 1b shows a lineage which is evolving more slowly.
 
 Navigate to the `~/Desktop/phylogenetics/part_3` directory. The file `Trich_ITS.NXS.short.fa` contains a dataset from the ITS (internal transcribed spacer) domain of the ribosomal genome. Align the sequences and infer a tree with RAxML, then examine it in FigTree.
 
@@ -167,15 +164,15 @@ Half the samples have been collected from tropical rainforest. The other half ha
 
 ### Glossary of useful terms
 
-Alignment – data (usually DNA sequences) that has been aligned so homologous positions can be compared
-Bayesian inference – phylogeny can be inferred using a likelihood function to produce posterior probabilities for a tree and then infer the most likely tree for a given dataset.
-Branch – a line that represents the path of evolutionary history within a phylogeny
-Clade – a group of taxa in a phylogeny that share character(s) from a single hypothetical ancestor
-Likelihood –is defined to be a quantity proportional to the probability of observing the data given
-the model
-MCMC – Markov chain Monte Carlo methods are algorithms. They can be used for sampling probability distributions
-Node – the position in a tree where branches separate. Each ‘node’ represents a real or hypothetical ancestor
-Phylogeny – evolutionary tree inferred from a dataset (often DNA sequences)
-Posterior probability - the probability of assigning observations to groups given the data
-Tip – the tips of a tree normally represent the extant (living) taxa that were sampled
-Taxon – the formal name of an organism or group of organisms
++ **Alignment** – data (usually DNA or amino-acid sequences) that has been optimally arranged so homologous positions can be compared. May include '-' characters known as 'gaps' to pad out shorter sequences where nucleotides/amino acids have been deleted during evolution (aka 'indels')
++ **Bayesian inference** – phylogeny can be inferred using a likelihood function to produce posterior probabilities for a tree and then infer the most likely tree for a given dataset.
++ **Branch** – a line that represents the path of evolutionary history within a phylogeny
++ **Clade** – a group of taxa in a phylogeny that share character(s) from a single hypothetical ancestor
++ **Likelihood** – is defined to be a quantity proportional to the probability of observing the data given
+the model. Usually expressed in log-likelihood units, abbreviated as 'lnL'
++ **MCMC** – Markov chain Monte Carlo methods are algorithms. They can be used for sampling probability distributions
++ **Node** – the position in a tree where branches separate. Each ‘node’ represents a real or hypothetical ancestor
++ **Phylogeny** – evolutionary tree inferred from a dataset (often DNA sequences)
++ **Posterior probability** - the probability of assigning observations to groups given the data
++ **Tip** – the tips of a tree normally represent the extant (living) taxa that were sampled
++ **Taxon** – the formal name of an organism or group of organisms
