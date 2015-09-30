@@ -120,11 +120,11 @@ User@user-pi:~$ muscle -in genus_A_master_ungapped.fa -out genus_A_aligned.out  
 ```
 Then convert into phylip format:
 ```bash
-User@user-pi:~$ java -jar ../software/PrepareFilesForPaml.jar genus_A_aligned.out
+User@user-pi:~$ java -jar ../../software/PrepareFilesForPaml.jar genus_A_aligned.out
 ```
 Then use RAxML to infer the tree:
 ```bash
-User@user-pi:~$ ../software/raxmlHPC -m GTRCAT -n genus_A -p 222  -s genus_A_aligned.out.stops.removed.phy 
+User@user-pi:~$ ../../software/raxmlHPC -m GTRCAT -n genus_A -p 222  -s genus_A_aligned.out.stops.removed.phy 
 ```
 Open the finished tree in FigTree again, and compare the phylogeny with the map.
 
