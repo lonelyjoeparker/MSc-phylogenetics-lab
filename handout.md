@@ -11,6 +11,8 @@ User@user-pi:~$ echo 'hello, world!'
 
 Some of the datasets in this practical have been simulated so that no two workstations will give identical answers to every question. If you have questions during the practical, ask your instructors.
 
+If your Pi goes into screensaver mode, the password is `user`.
+
 *Note: the datasets and other files needed for this practical can be found at https://github.com/lonelyjoeparker/MSc-phylogenetics-lab. If you need a hint, a cheatsheet is at `~/Desktop/phylogenetics/commands.sh`. This worksheet (in case you're reading the printed version) is available online at https://github.com/lonelyjoeparker/MSc-phylogenetics-lab/blob/master/handout.md*
 
 ## Part 0 – Getting started (10-15mins)
@@ -105,7 +107,7 @@ In `orchids.short.filtered.fa`, we’ve removed the contaminant. Re-align the se
 ```bash
 # the answer is blowin' in...
 ```
-There are two datasets from two genera of flowering plants, both distributed on the hawaiian islands. One is wind-dispersed, the other is dispersed by mammals. We will investigate their districutopns and look for a phylogeographic pattern.
+There are two datasets from two genera of flowering plants, both distributed on the Hawaiian islands. One is wind-dispersed, the other is dispersed by mammals. We will investigate their distributions and look for a phylogeographic pattern.
 The islands themselves have formed at different times from a chain of seamounts arising from two tectonic plates:
 
 ![Major and outlying Hawaiian islands: Donch](http://www.donch.com/images/LULH/age.jpg)
@@ -117,7 +119,7 @@ User@user-pi:~$ muscle -in genus_A_master_ungapped.fa -out genus_A_aligned.out  
 ```
 Then convert into phylip format:
 ```bash
-User@user-pi:~$ java -jar PrepareFilesForPaml.jar genus_A_aligned.out
+User@user-pi:~$ java -jar ../software/PrepareFilesForPaml.jar genus_A_aligned.out
 ```
 Then use RAxML to infer the tree:
 ```bash
@@ -152,13 +154,15 @@ Finally, we can use a programme called BEAST to infer how old clades within the 
 ```bash
 # Most code comments debase into wisecracks of dubious value soon enough…
 ```
-The shape of the tree itself also gives us useful information. Figs 1a and 1b show two common shapes of tree; 1a shows a lineage that has undergone a burst of rapid speciation and evolution. Fig 1b shows a lineage which is evolving more slowly.
+The shape of the tree itself also gives us useful information. Figs 1A and 1B show two common shapes of tree; 1a shows a lineage that has undergone a burst of rapid speciation and evolution. Fig 1b shows a lineage which is evolving more slowly:
+
+![Two rates of diversification. Taken from Richardson, JE *et al.* (2001), Science](https://raw.githubusercontent.com/lonelyjoeparker/MSc-phylogenetics-lab/master/rates.png)
 
 Navigate to the `~/Desktop/phylogenetics/part_3` directory. The file `Trich_ITS.NXS.short.fa` contains a dataset from the ITS (internal transcribed spacer) domain of the ribosomal genome. Align the sequences and infer a tree with RAxML, then examine it in FigTree.
 
 Half the samples have been collected from tropical rainforest. The other half have been collected from seasonal dry forest.
 
-**QUESTION 7:** Which half of the phylogeny has evolved recently? Which half a while ago?
+**QUESTION 7:** Which clades in the phylogeny has evolved recently? Which are much older?
 
 ---
 
