@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /bin/bash
 
 #####################################
 #									#
@@ -13,7 +13,9 @@
 #									#
 #####################################
 
-## The files needed for this practical are also available at https://github.com/lonelyjoeparker/MSc-phylogenetics-lab
+## The files needed for this practical 
+## are also available at 
+## https://github.com/lonelyjoeparker/MSc-phylogenetics-lab
 
 
 ## Part 1 ##
