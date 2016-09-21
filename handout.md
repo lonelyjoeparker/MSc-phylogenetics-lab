@@ -18,7 +18,7 @@ If your Pi goes into screensaver mode, the password is `user`.
 ## Part 0 – Getting started (10-15mins)
 
 ```bash
-# Yes, most things in computing are numbered from 0… n-1, not 1… n. Get used to it!
+# Yes, most lists in computing are numbered from 0… n-1, not 1… n. 
 ```
 You should already have read [“How to read a phylogenetic tree”](http://epidemic.bio.ed.ac.uk/how_to_read_a_phylogeny) by Andrew Rambaut, and [“Basic Shell Commands”](http://www.hongkiat.com/blog/basic-shell-commands-for-bloggers/) (which you can run interactively on [Tutorialspoint](http://www.tutorialspoint.com/execute_bash_online.php)). Let’s get started: 
 
@@ -55,7 +55,7 @@ cd Desktop/phylogenetics/part_1
 
 ## Part 1 – Aligning sequences, building trees, and looking for error (30mins)
 ```bash
-# Unfunny pithy remark here, spot the pattern?
+# 'Comments' are little notes you may see in some code that remind us what each bit of the programme is meant to do. They usually start with a '#', by the way.
 ```
 We're going to construct a phylogeny of some matK genes taken from specimens in the gardens. They were collected from orchids and sequenced. First we’ll look at the sequences. They are in the `orchids.short.initial.fa` file. You can use the command `less` to look at the file (press ‘q’ to quit, or spacebar to scroll through the sequences):
 ```bash
@@ -107,10 +107,11 @@ In `orchids.short.filtered.fa`, we’ve removed the contaminant. Re-align the se
 ```bash
 # the answer is blowin' in...
 ```
-There are two datasets from two genera of flowering plants, both distributed on the Hawaiian islands. One is wind-dispersed, the other is dispersed by mammals. We will investigate their distributions and look for a phylogeographic pattern.
-The islands themselves have formed at different times from a chain of seamounts arising from two tectonic plates:
+There are two datasets from two genera of flowering plants, both distributed on the Hawaiian islands. One is wind-dispersed, the other is dispersed by mammals. We will investigate their distributions and look for a phylogeographic pattern. A map of the islands is shown in Fig. 1. The islands themselves have formed at different times from a chain of seamounts arising from two tectonic plates:
 
 ![Major and outlying Hawaiian islands: Donch](http://www.donch.com/images/LULH/age.jpg)
+
+**Fig. 1**: Major and outlying Hawaiian islands: Donch
  
 
 First you’ll need to navigate to the ‘part_2’ directory in the command prompt window. There are two datasets, `genus_A_master_ungapped.fa` and `genus_B_master_ungapped.fa`. Each has a single species present on each island. We're interested in how the pattern of evolution mirrors the geological formation of the islands - this is called **phylogeography**. We’ll build a tree for genus A first. We have to align the sequences, as before:
@@ -119,11 +120,11 @@ User@user-pi:~$ muscle -in genus_A_master_ungapped.fa -out genus_A_aligned.out  
 ```
 Then convert into phylip format:
 ```bash
-User@user-pi:~$ java -jar ../software/PrepareFilesForPaml.jar genus_A_aligned.out
+User@user-pi:~$ java -jar ../../software/PrepareFilesForPaml.jar genus_A_aligned.out
 ```
 Then use RAxML to infer the tree:
 ```bash
-User@user-pi:~$ ../software/raxmlHPC -m GTRCAT -n genus_A -p 222  -s genus_A_aligned.out.stops.removed.phy 
+User@user-pi:~$ ../../software/raxmlHPC -m GTRCAT -n genus_A -p 222  -s genus_A_aligned.out.stops.removed.phy 
 ```
 Open the finished tree in FigTree again, and compare the phylogeny with the map.
 
@@ -136,27 +137,33 @@ Repeat the analysis for genus B. Compare this phylogeny with the one inferred fo
 
 
 
-## Part 2b – Rates of evolution of island chains (30mins)
+## Part 2b – Estimating dates of past events using BEAST (30mins)
 
 ```bash
-# Commenting code liberally is good. Comments in Linux typically start with a ‘#’
+# um, yep, so not all comments are useful...
 ```
-Assuming the rate of evolution has been steady over time, we attempt to guess how old the clades in the tree are. The file `mc.paml_MCMC_slow.(time).MCC.tre` contains a tree that has branch lengths in units of time (millions of years ago, MYA). Open it in FigTree.
+Just as we learn in physics that `distance = (speed x time)`, the number of genetic substitutions between two related gene sequences will be a function of the rate at which random mutations occur, and the time that's elapsed since their most recent common ancestor ('MRCA'). This means that by assuming the rate of evolution has been steady over time, we can attempt to guess how old the clades in a tree are. The file `mc.paml_MCMC_slow.(time).MCC.tre` contains a tree that has branch lengths scaled using this process to reflect units of time (millions of years ago, MYA) instead of numbers of genetic changes. Open it in FigTree or see this example below (Fig 3):
+
+![Phylogeny showing MRCA dates estimated via a fixed molecular clock in BEAST](https://raw.githubusercontent.com/lonelyjoeparker/MSc-phylogenetics-lab/master/island_dates.png)
+
+**Fig. 2**: *Phylogeny showing MRCA dates estimated via a fixed molecular clock in BEAST.*
 
 **QUESTION 6:** Which dispersal event is the oldest?
 
-Finally, we can use a programme called BEAST to infer how old clades within the tree are numerically. Your instructors will show you a trace file from BEAST.  (`mc.paml_MCMC_slow.log`)
+Finally, we can use a programme to directly infer how old clades within the tree are numerically. A programme called **BEAST** implements this method using a sampling technique called 'MCMC'. We've applied it to try and accurately estimate the MRCA dates for each internal node in the tree: your instructors will show you a trace file from BEAST (`mc.paml_MCMC_slow.log`).
 
 ---
 
 ## Part 3 – Speciation in tropical rainforests (30mins)
 
 ```bash
-# Most code comments debase into wisecracks of dubious value soon enough…
+# Some are: this comment is to remind joe to sync versions to the local copy after the http commit.
 ```
-The shape of the tree itself also gives us useful information. Figs 1A and 1B show two common shapes of tree; 1a shows a lineage that has undergone a burst of rapid speciation and evolution. Fig 1b shows a lineage which is evolving more slowly:
+The shape of the tree itself also gives us useful information. Figs 3A and 3B show two common shapes of tree; 3a shows a lineage which is evolving more slowly. Fig 3b shows a lineage that has undergone a burst of rapid speciation and evolution:
 
 ![Two rates of diversification. Taken from Richardson, JE *et al.* (2001), Science](https://raw.githubusercontent.com/lonelyjoeparker/MSc-phylogenetics-lab/master/rates.png)
+
+**Fig 3**: *Two rates of diversification. Taken from Richardson, JE* et al. *(2001), Science*
 
 Navigate to the `~/Desktop/phylogenetics/part_3` directory. The file `Trich_ITS.NXS.short.fa` contains a dataset from the ITS (internal transcribed spacer) domain of the ribosomal genome. Align the sequences and infer a tree with RAxML, then examine it in FigTree.
 
